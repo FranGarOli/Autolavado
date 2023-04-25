@@ -3,9 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ServiceController extends Controller
 {
+
+    public function getAllServices(){
+        $data = DB::table('services')->select('id', 'description')->get();
+        return response()->json($data);
+    }
     /**
      * Display a listing of the resource.
      */

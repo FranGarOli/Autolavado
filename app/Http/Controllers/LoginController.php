@@ -27,7 +27,7 @@ class LoginController extends Controller
         if(Auth::guard('web')->attempt($credenciales)){
             //si se autentifica
             $request->session()->regenerateToken();
-            return view('back.index');
+            return redirect(route('registers.index'));
         }else{
             $error = 'Error al acceder a la aplicación.';
             return view('back.login', compact('error'));

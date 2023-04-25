@@ -1,8 +1,7 @@
-<nav>
+<nav class="nav-back">
     <a>Logo</a>
     <div class="enlaces">
         <a href="{{route('index')}}">INICIO</a>
-        <a href="{{route('services')}}">SERVICIOS</a>
-        <a href="{{route('contact')}}" id="cita">PEDIR CITA</a>
+        <a href="{{route('registers.create')}}">CREAR REGISTRO</a>
     </div>
 </nav>
