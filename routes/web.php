@@ -44,4 +44,11 @@ Route::get('dateBooking', [StaticPagesController::class, 'dateBookings'])->name(
 Route::get('login', [LoginController::class, 'loginForm'])->name('loginForm');
 Route::post('login', [LoginController::class, 'login'])->name('login');
 
+Route::resource('registers', RegisterController::class)->middleware('auth');
 Route::resource('clients', ClientController::class)->middleware('auth');
+
+//peticion api coger servicios
+Route::get('/getAllServices', [ServiceController::class, 'getAllServices'])
+    ->name('allServices')
+    ->middleware('auth');
+

@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Client;
+use App\Models\Register;
 use Illuminate\Http\Request;
+
 
 class RegisterController extends Controller
 {
@@ -11,7 +14,8 @@ class RegisterController extends Controller
      */
     public function index()
     {
-        //
+        $registers = Register::all();
+        return view('back.index', compact('registers'));
     }
 
     /**
@@ -19,7 +23,7 @@ class RegisterController extends Controller
      */
     public function create()
     {
-        //
+        return view('back.registers.create');
     }
 
     /**
@@ -27,7 +31,35 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //$register = new Register();
+
+        if (Client::where('dni')->get() == $request->get('dni')){
+            //creará registro con un cliente asociado
+            echo 'Dni ya introducido';
+        }else{
+            //Crea el cliente
+            $client = new Client();
+            $client->name = $request->get('name');
+            $client->dni = $request->get('dni');
+            $client->email = $request->get('email');
+            $client->phone = $request->get('phone');
+
+            $client->save();
+
+            $register = new Register();
+            $register->client_id = $client->id;
+            $register->status = "Recibido";
+            $register->total = 10.99;
+
+            $register->save();
+        }
+
+//
+//        $register->total = $request->get('total');
+//        $register->status = $request->get('status');
+//        $register->save();
+
+        return redirect(route('registers.index'));
     }
 
     /**
