@@ -13,7 +13,9 @@
                 <p>Nos encontramos en Carrer de la Vila de Manuel, 6, 46019</p>
             </div>
 
-            <form action="" method="post" class="formularioContacto">
+            <form action="{{route('sendEmail')}}" method="post" class="formularioContacto">
+                @csrf
+
                 <h2>Contacta con nosotros!</h2>
 
                 <div class="campos-formulario">
