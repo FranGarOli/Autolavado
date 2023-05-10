@@ -32,11 +32,17 @@
                 <div class="campos-formulario">
                     <label for="service">Servicio a realizar: </label>
                     <select name="service" id="service">
+                        <!--Hacer peticion api sacar servicios-->
                         <option value="op1">Servicio interior y exterior sin llantas</option>
                         <option value="op2">Servicio interior y exterior con llantas y cristales</option>
                         <option value="ta1">Tapicería completa</option>
                     </select>
                 </div>
+
+                <div class="campos-formulario">
+                    <label for="model">Modelo del coche: </label>
+                    <input type="email" name="model" id="model">
+                </div><br>
 
                 <div class="btn-formulario">
                     <input type="submit" name="book" value="Reservar">

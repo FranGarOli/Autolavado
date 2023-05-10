@@ -52,3 +52,11 @@ Route::get('/getAllServices', [ServiceController::class, 'getAllServices'])
     ->name('allServices')
     ->middleware('auth');
 
+//peticion api coger datos clientes
+Route::get('/getAllClients', [ServiceController::class, 'getAllClients'])
+    ->name('getAllClients')
+    ->middleware('auth');
+
+//Peticion mandar correo email de contacto
+Route::post('sendEmail', [StaticPagesController::class, 'sendEmail'])->name('sendEmail');
+

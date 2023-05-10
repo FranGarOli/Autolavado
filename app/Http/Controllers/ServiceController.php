@@ -12,6 +12,11 @@ class ServiceController extends Controller
         $data = DB::table('services')->select('id', 'description')->get();
         return response()->json($data);
     }
+
+    public function getAllClients(){
+        $data = DB::table('clients')->get();
+        return response()->json($data);
+    }
     /**
      * Display a listing of the resource.
      */

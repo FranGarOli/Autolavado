@@ -165,4 +165,16 @@ div.campos-formulario{
     gap: 2em;
     width: 900px;
     height: auto;
+    border: 1px solid black;
+    background: #4a5568;
+}
+
+.registros{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+ul.pagination li a {
+    font-size: 14px;
 }

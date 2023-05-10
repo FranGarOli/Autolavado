@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\RegisterService;
 use App\Models\Register;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 
 class RegisterController extends Controller
@@ -14,8 +16,10 @@ class RegisterController extends Controller
      */
     public function index()
     {
-        $registers = Register::all();
-        return view('back.index', compact('registers'));
+        $registers = Register::orderBy('created_at', 'desc')->simplePaginate(5);
+
+        $possibleStatusValues = ['Recibido', 'En proceso', 'Terminado', 'Pagado'];
+        return view('back.index', compact('registers', 'possibleStatusValues'));
     }
 
     /**
@@ -31,33 +35,75 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
-        //$register = new Register();
 
-        if (Client::where('dni')->get() == $request->get('dni')){
-            //creará registro con un cliente asociado
-            echo 'Dni ya introducido';
-        }else{
-            //Crea el cliente
+        //creamos un registro nuevo
+        $register = new Register();
+
+        //validar campos del formulario ¿crear un request y ahorrarse esto? -> PENDIENTE
+
+        // fin validacion
+
+        /* ------------------------ VALIDAR CLIENTE ------------------------
+         SI EXISTE -> RELACIONAS EL client_id CON EL ID DEL CLIENTE EXISTENTE,
+         SI NO EXISTE -> CREAS UN CLIENTE Y LO ASOCIAS AL REGISTRO QUE VAS A CREAR
+        */
+
+        //cogemos el nombre del cliente que hemos metido por el formulario
+        $nameClientFormReceived = $request->get('name');
+        //validamos si existe un cliente con ese nombre
+        $existClient = Client::where('name', $nameClientFormReceived)->first();
+
+
+        //si existe el client asocia el id al client_id
+        if ($existClient){
+
+            echo 'Existe el cliente';
+            $register->client_id = $existClient->id;
+
+        }
+        //si no existe el cliente se crea
+        else{
+
             $client = new Client();
             $client->name = $request->get('name');
             $client->dni = $request->get('dni');
-            $client->email = $request->get('email');
             $client->phone = $request->get('phone');
+            $client->email = $request->get('email');
 
             $client->save();
 
-            $register = new Register();
+            //asociamos el registro que vamos a crear con el id del cliente recien generado
             $register->client_id = $client->id;
-            $register->status = "Recibido";
-            $register->total = 10.99;
-
-            $register->save();
         }
 
-//
-//        $register->total = $request->get('total');
-//        $register->status = $request->get('status');
-//        $register->save();
+        //creamos el servicio ahora para poder coger su id y asociar los servicios
+        $register->save();
+
+        /* ------------------------ ASOCIAR SERVICIOS AL REGISTRO  ------------------------
+         POR CADA VALOR DEL ARRAY TRANSFORMADO -> CREARÁ UNA ENTIDAD EN register_service
+         ASOCIANDO EL ID DEL REGISTRO CREADO CON EL ID DEL SERVICIO
+        */
+
+        //dividimos el array que nos llega del input servicios
+        $arrayServicios = explode(",", $request->get('servicios'));
+
+        $registros_servicios = DB::table('services')
+            ->whereIn('description', $arrayServicios)
+            ->get();
+
+        //prueba utilizar metodo pluck, recoge todos los id asociados a el array servicios que tiene name de servicios
+        $idsCollectionServiciosAsociados = $registros_servicios->pluck('id');
+        echo "Array IDS de cada nombre de servicios: " .$idsCollectionServiciosAsociados;
+
+        foreach ($idsCollectionServiciosAsociados as $idServicio){
+            $register_service = new RegisterService();
+
+            $register_service->register_id = $register->id;
+            $register_service->service_id = $idServicio;
+
+            $register_service->save();
+            echo 'Registro a insertar: '. $register_service;
+        }
 
         return redirect(route('registers.index'));
     }
@@ -65,9 +111,9 @@ class RegisterController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Register $register)
     {
-        //
+        return view('back.registers.show', compact('register'));
     }
 
     /**
@@ -81,9 +127,12 @@ class RegisterController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Register $register)
     {
-        //
+        $register->status = $request->get('valueNewStatus');
+        $register->save();
+
+        return redirect()->back()->with('mensaje', 'El estado del registro ha sido actualizado correctamente.');
     }
 
     /**
