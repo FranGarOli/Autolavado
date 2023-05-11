@@ -113,7 +113,8 @@ class RegisterController extends Controller
      */
     public function show(Register $register)
     {
-        return view('back.registers.show', compact('register'));
+        $possibleStatusValues = ['Recibido', 'En proceso', 'Terminado', 'Pagado'];
+        return view('back.registers.show', compact('register', 'possibleStatusValues'));
     }
 
     /**

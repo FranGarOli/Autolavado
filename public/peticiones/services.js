@@ -2,13 +2,14 @@ document.addEventListener('DOMContentLoaded', function (){
 
     //elementos html sobre servicios
     var btnAnyadirServicio = document.getElementById("anyadirServicio");
+    var btnBorrarServicios = document.getElementById("borrarServicios");
+
     var contenedorDataList = document.getElementById("contenedorDataList");
     var numServicesToAssociate = 0;
 
     var inputServicio = document.getElementById("inputServicio")
     var inputHiddenServicios = document.getElementById("servicios");
     var arrayServicios = [];
-
 
 
     //elementos html sobre un cliente
@@ -77,6 +78,11 @@ document.addEventListener('DOMContentLoaded', function (){
             console.log('Entra al listener input')
             inputHiddenServicios.value += inputServicio.value+ ',';
         });
+
+        //evento de borrar los servicios
+        btnBorrarServicios.addEventListener('click', function(){
+            inputServicio.value = '';
+        });
     }
 
     $.ajax({
@@ -120,7 +126,6 @@ document.addEventListener('DOMContentLoaded', function (){
             //lo añadimos al elemento que recoge los servicios
             datalistNombres.appendChild(nameOption);
         }
-
     }
 })
 

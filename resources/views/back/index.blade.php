@@ -2,7 +2,17 @@
 
 @section('titulo', 'Autolavado García')
 @section('cuerpo')
+<div class="input-group">
+    <div class="form-outline">
+      <input type="search" id="form1" class="form-control" />
+      <label class="form-label" for="form1">Search</label>
+    </div>
+    <button type="button" class="btn btn-primary">
+      <i class="fas fa-search"></i>
+    </button>
+  </div>
 <main>
+
     <div class="registros">
         <br>
 
@@ -11,6 +21,8 @@
                 {{ session('mensaje') }}
             </div>
         @endif
+
+
 
         @forelse ($registers as $registro)
             <div class="register-card">
@@ -40,7 +52,7 @@
                     @csrf
                     @method('put')
 
-                    <select class="btn btn-primary" name="valueNewStatus">
+                    <select class="btn btn-primary" name="valueNewStatus" onchange="this.form.submit()">
                         @forelse($possibleStatusValues as $statusOption)
 
                             @if($statusOption != $registro->status)
@@ -52,7 +64,6 @@
                         @empty
                         @endforelse
                     </select>
-                    <input type="submit" value="Cambiar estado">
                 </form>
 
             </div><br>

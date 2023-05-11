@@ -41,6 +41,7 @@
                         <!--Input que genera name=servicio1"-->
                     </div>
                     <input type="button" value="Añadir servicio" id="anyadirServicio">
+                    <input type="button" value="Borrar servicios" id="borrarServicios">
                 </label>
             </div>
 

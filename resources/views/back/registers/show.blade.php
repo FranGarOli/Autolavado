@@ -4,18 +4,23 @@
 @section('cuerpo')
     <main>
         <h1>Registro: {{$register->id}}</h1><br>
-        <select>
-                <option selected>{{$register->status}}</option>
-                @if($register->status != 'Recibido')
+        <form action="{{route('registers.update', ['register' => $register])}} " method="post">
+            @csrf
+            @method('put')
 
-                    <option>Recibido</option>
+            <select class="btn btn-primary" name="valueNewStatus" onchange="this.form.submit()">
+                @forelse($possibleStatusValues as $statusOption)
 
-                @endif
-                <option>En proceso</option>
-                <option>Terminado</option>
-                <option>Pagado</option>
+                    @if($statusOption != $register->status)
+                        <option>{{$statusOption}}</option>
+                    @else
+                        <option selected>{{$statusOption}}</option>
+                    @endif
 
-        </select>
+                @empty
+                @endforelse
+            </select>
+        </form>
 
         <div>
             <h2>Información del cliente</h2>
