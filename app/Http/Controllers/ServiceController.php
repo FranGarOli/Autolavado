@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Service;
 use Illuminate\Support\Facades\DB;
 
 class ServiceController extends Controller
@@ -22,7 +23,9 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        //
+        $services = Service::all();
+
+        return view('back.services.index', compact('services'));
     }
 
     /**
@@ -30,7 +33,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        //
+        return view('back.services.create');
     }
 
     /**
@@ -38,7 +41,14 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $service = new Service();
+        $service->title = $request->get('title');
+        $service->description = $request->get('description');
+        $service->price = $request->get('price');
+        $service->category = $request->get('category');
+
+        $service->save();
+        return redirect(route('services.index'));
     }
 
     /**

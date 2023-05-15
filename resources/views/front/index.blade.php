@@ -19,7 +19,7 @@
                     <h1 class="mb-3">AUTOLAVADO GARCÍA</h1>
                     <h5 class="mb-4">Somos una empresa familiar consolidada en el sector limpieza y mantenimiento del vehículo desde 1973, mas de 40 años de experiencia que nos avalan en valencia</h5>
 
-                    <a class="btn btn-outline-light btn-lg m-2" href="{{route('services')}}" role="button">SERVICIOS</a>
+                    <a class="btn btn-outline-light btn-lg m-2" href="" role="button">TRABAJOS REALIZADOS</a>
                     <a class="btn btn-outline-light btn-lg m-2 active" href="{{route('dateBookings')}}" role="button">PEDIR CITA</a>
                     </div>
                 </div>
@@ -33,10 +33,12 @@
     <div class="container">
       <!--Section: Content-->
       <section>
+
         <div class="row align-items-center justify-content-center">
+
           <div class="col-md-6 gx-5 mb-4">
             <div class="bg-image hover-overlay ripple shadow-2-strong rounded-5" data-mdb-ripple-color="light">
-              <img src="https://mdbootstrap.com/img/new/slides/031.jpg" class="img-fluid" />
+              <img src="https://images.unsplash.com/photo-1672840997353-4579d5d6a7d5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80" class="img-fluid" />
               <a href="#!">
                 <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
               </a>
@@ -44,12 +46,16 @@
           </div>
 
           <div class="col-md-6 gx-5 mb-4">
-            <h4><strong>Facilis consequatur eligendi</strong></h4>
+            <h4><strong>Trabajamos para tí</strong></h4>
             <p class="text-muted">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
-              consequatur eligendi quisquam doloremque vero ex debitis
-              veritatis placeat unde animi laborum sapiente illo possimus,
-              commodi dignissimos obcaecati illum maiores corporis.
+                Con los años de experiencia, la tecnología de las máquinas y los productos de primer
+                orden biodegradables, y manteniendo un control del pH tanto para no matizar las pinturas de los vehículos
+                (sobre todo los mono capas) , como para no decolorar los tejidos y plásticos del vehículo, logramos unas limpiezas y
+                acabados tanto en el interior como en el exterior del vehículo impresionantes e impecables como el primer día sacado del concesionario
+            </p>
+            <p class="text-muted">
+                Esta empresa, tanto la seriedad con el cliente a la hora de aconsejarle un servicio a las necesidades de su vehículo, como la confianza que
+                ofrecemos al depositarnos el vehículo en nuestras instalaciones, hemos hecho al paso de los años un lavadero de referencia y confianza
             </p>
           </div>
         </div>

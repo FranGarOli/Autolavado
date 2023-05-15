@@ -26,7 +26,7 @@ use App\Http\Controllers\ClientController;
 //principal
 Route::get('/', [StaticPagesController::class, 'index'])->name('index');
 
-//principal
+//politicas
 Route::get('cookies', [StaticPagesController::class, 'cookies'])->name('cookies');
 
 //servicios
@@ -44,18 +44,26 @@ Route::get('dateBooking', [StaticPagesController::class, 'dateBookings'])->name(
 Route::get('login', [LoginController::class, 'loginForm'])->name('loginForm');
 Route::post('login', [LoginController::class, 'login'])->name('login');
 
+//Rutas para registros
 Route::resource('registers', RegisterController::class)->middleware('auth');
+
+//Rutas para el cliente
 Route::resource('clients', ClientController::class)->middleware('auth');
+
+//Rutas para los servicios
+Route::resource('services', ServiceController::class)->middleware('auth');
+
+//peticion api coger datos clientes
+Route::get('/getAllClients', [ServiceController::class, 'getAllClients'])
+    ->name('getAllClients')
+    ->middleware('auth');
+
 
 //peticion api coger servicios
 Route::get('/getAllServices', [ServiceController::class, 'getAllServices'])
     ->name('allServices')
     ->middleware('auth');
 
-//peticion api coger datos clientes
-Route::get('/getAllClients', [ServiceController::class, 'getAllClients'])
-    ->name('getAllClients')
-    ->middleware('auth');
 
 //Peticion mandar correo email de contacto
 Route::post('sendEmail', [StaticPagesController::class, 'sendEmail'])->name('sendEmail');

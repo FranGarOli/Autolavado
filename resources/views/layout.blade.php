@@ -39,20 +39,16 @@
                 height: 50vh !important;
               }
             }
-
-            .navbar .nav-link {
-              color: #a8c3e4 !important;
-            }
           </style>
     </head>
-<body>
-<!-- INCLUIMOS LA CABECERA (Diferenciar front - back)-->
-@include('partials.navfront')
+<body class="d-flex flex-column">
+    <!-- INCLUIMOS LA CABECERA (Diferenciar front - back)-->
+    @include('partials.navfront')
 
-<!-- CARGAMOS EL CONTENIDO-->
-@yield('cuerpo')
+    <!-- CARGAMOS EL CONTENIDO-->
+    @yield('cuerpo')
 
-<!-- INCLUIMOS EL FOOTER-->
-@include('partials.footerfront')
+    <!-- INCLUIMOS EL FOOTER-->
+    @include('partials.footerfront')
 </body>
 </html>

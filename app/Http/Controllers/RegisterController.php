@@ -16,7 +16,7 @@ class RegisterController extends Controller
      */
     public function index()
     {
-        $registers = Register::orderBy('created_at', 'desc')->simplePaginate(5);
+        $registers = Register::orderBy('created_at', 'desc')->simplePaginate(10);
 
         $possibleStatusValues = ['Recibido', 'En proceso', 'Terminado', 'Pagado'];
         return view('back.index', compact('registers', 'possibleStatusValues'));
