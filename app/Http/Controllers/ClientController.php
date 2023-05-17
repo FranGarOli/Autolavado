@@ -8,6 +8,16 @@ use App\Models\Client;
 
 class ClientController extends Controller
 {
+
+    public function search(Request $request){
+
+        $name = $request->input('name');
+        $client = Client::where('name', $name)->first();
+
+
+        return redirect()->route('registers.index')->with('mensaje', 'Cliente no encontrado');
+
+    }
     /**
      * Display a listing of the resource.
      */

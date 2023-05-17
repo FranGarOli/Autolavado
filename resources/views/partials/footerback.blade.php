@@ -1,3 +1,3 @@
 <footer>
-    <a>Logo</a>
+    <span>Autolavado García</span>
 </footer>

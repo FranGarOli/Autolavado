@@ -50,7 +50,7 @@
                             @forelse($registro->services as $service)
                                 @php($total += $service->price)
 
-                                <p class="fw-normal mb-1">{{ $service->description }} - {{ $service->price }} €</p>
+                                <p class="fw-normal mb-1">{{ $service->title }} - {{ $service->price }} €</p>
 
                             @empty
                                 <p>No hay servicios asociados...</p>
@@ -104,9 +104,9 @@
 
                         <td>{{ $registro->client->phone }}</td>
 
-                        <!--COLUMNA VER UN REGISTRO-->
+                        <!--COLUMNA VER FECHA -->
                         <td>
-                            <p class="fw-normal mb-1">{{ $service->created_at }}</p>
+                            <p class="fw-normal mb-1">{{ $registro->created_at }}</p>
                         </td>
 
                         <!--COLUMNA VER UN REGISTRO-->

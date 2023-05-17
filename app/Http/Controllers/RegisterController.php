@@ -143,4 +143,9 @@ class RegisterController extends Controller
     {
         //
     }
+
+    public function generateInvoice(Register $register)
+    {
+
+    }
 }

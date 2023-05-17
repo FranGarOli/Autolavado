@@ -10,7 +10,7 @@ class ServiceController extends Controller
 {
 
     public function getAllServices(){
-        $data = DB::table('services')->select('id', 'description')->get();
+        $data = DB::table('services')->select('id', 'title')->get();
         return response()->json($data);
     }
 
@@ -48,7 +48,7 @@ class ServiceController extends Controller
         $service->category = $request->get('category');
 
         $service->save();
-        return redirect(route('services.index'));
+        return redirect(route('registers.index'));
     }
 
     /**

@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function (){
 
     var inputServicio = document.getElementById("inputServicio")
     var inputHiddenServicios = document.getElementById("servicios");
-    var arrayServicios = [];
 
 
     //elementos html sobre un cliente
@@ -61,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function (){
             let option = document.createElement('option');
 
             //asignamos el id al valor del option y la descripcion al html
-            option.innerHTML = response[i].description;
+            option.innerHTML = response[i].title;
 
 
             //lo añadimos al elemento que recoge los servicios
@@ -102,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function (){
             }
 
             //cuando seleccionamos un nombre y cambia el input
-            nameClient.addEventListener('input', function (){
+            nameClient.addEventListener('change', function (){
                 const nameSelected = nameClient.value;
 
                 rellenarInputsClientConNombre(response, nameSelected);

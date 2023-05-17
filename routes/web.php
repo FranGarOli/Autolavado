@@ -17,10 +17,6 @@ use App\Http\Controllers\ClientController;
 |
 */
 
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
-
 //FRONT------------------------------------------------------------------------
 
 //principal
@@ -49,6 +45,7 @@ Route::resource('registers', RegisterController::class)->middleware('auth');
 
 //Rutas para el cliente
 Route::resource('clients', ClientController::class)->middleware('auth');
+Route::get('client/search', 'ClientController@search')->name('client.search');
 
 //Rutas para los servicios
 Route::resource('services', ServiceController::class)->middleware('auth');
