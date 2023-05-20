@@ -81,6 +81,9 @@ document.addEventListener('DOMContentLoaded', function (){
         //evento de borrar los servicios
         btnBorrarServicios.addEventListener('click', function(){
             inputServicio.value = '';
+            inputHiddenServicios.value = '';
+            //TODO - borrar inputs generados al dar en añadir servicio
+            
         });
     }
 

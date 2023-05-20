@@ -61,13 +61,13 @@
                     </div>
 
                     <div class="campos-formulario">
-                        <label for="licensePlate">Matricula</label>
-                        <input type="text" name="licensePlate" id="licensePlate">
+                        <label for="plate">Matricula</label>
+                        <input type="text" name="plate" id="plate">
                     </div>
 
                     <div class="campos-formulario">
                         <label for="date">Fecha de recogida</label>
-                        <input type="datetime-local" name="datetime" id="datetime">
+                        <input type="datetime-local" name="limitDate" id="datetime">
                     </div>
                 </div>
             </div>

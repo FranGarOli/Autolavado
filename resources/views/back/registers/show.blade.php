@@ -25,8 +25,8 @@
                 <a href="#" class="btn btn-primary d-flex justify-content-center align-items-center">IMPRIMIR FACTURA</a>
             </div>
             <div class="card-footer text-muted mt-2 d-flex flex-row justify-content-center align-items-center gap-5">
-                <span>Fecha de creación:  {{ $service->created_at }}</span>
-                <span>Fecha de finalización:  {{ $service->updated_at }}</span>
+                <span>Fecha de creación:  {{ $register->created_at }}</span>
+                <span>Fecha de finalización:  {{ $register->updated_at }}</span>
             </div>
         </div>
         {{-- <h1>Registro: {{$register->id}}</h1><br>

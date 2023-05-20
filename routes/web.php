@@ -43,6 +43,9 @@ Route::post('login', [LoginController::class, 'login'])->name('login');
 //Rutas para registros
 Route::resource('registers', RegisterController::class)->middleware('auth');
 
+//Ruta para crear registro desde reserva
+Route::post('saveBooking', [StaticPagesController::class, 'saveBooking'])->name('saveBooking');
+
 //Rutas para el cliente
 Route::resource('clients', ClientController::class)->middleware('auth');
 Route::get('client/search', 'ClientController@search')->name('client.search');

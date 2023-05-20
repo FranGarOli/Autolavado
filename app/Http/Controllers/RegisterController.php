@@ -7,7 +7,7 @@ use App\Models\RegisterService;
 use App\Models\Register;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Carbon\Carbon;
 
 class RegisterController extends Controller
 {
@@ -57,10 +57,10 @@ class RegisterController extends Controller
         //si existe el client asocia el id al client_id
         if ($existClient){
 
-            echo 'Existe el cliente';
             $register->client_id = $existClient->id;
 
         }
+
         //si no existe el cliente se crea
         else{
 
@@ -76,8 +76,14 @@ class RegisterController extends Controller
             $register->client_id = $client->id;
         }
 
+        $register->plate = $request->get('plate');
+        $register->model = $request->get('model');
+        $register->entryDate = Carbon::now();
+        $register->limitDate = $request->get('limitDate');
+
         //creamos el servicio ahora para poder coger su id y asociar los servicios
         $register->save();
+
 
         /* ------------------------ ASOCIAR SERVICIOS AL REGISTRO  ------------------------
          POR CADA VALOR DEL ARRAY TRANSFORMADO -> CREARÁ UNA ENTIDAD EN register_service
@@ -102,7 +108,6 @@ class RegisterController extends Controller
             $register_service->service_id = $idServicio;
 
             $register_service->save();
-            echo 'Registro a insertar: '. $register_service;
         }
 
         return redirect(route('registers.index'));
