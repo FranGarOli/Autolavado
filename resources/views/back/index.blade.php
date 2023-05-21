@@ -6,12 +6,55 @@
     <main class="container d-flex flex-column gap-5 mt-5">
 
         @if (session('mensaje'))
-            <div class="alert alert-success">
+            <div class="alert alert-success mt-5">
                 {{ session('mensaje') }}
             </div>
         @endif
 
-        <table class="table align-middle mt-5 bg-white ">
+        <!-- Navbar-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-0">
+            <div class="container-fluid justify-content-between">
+
+                <!-- Center elements -->
+                <ul class="navbar-nav flex-row d-none d-md-flex">
+                    <li class="nav-item me-3 me-lg-1 active">
+                        <a class="nav-link" href="#">
+                            <span><i class="fas fa-home fa-lg"></i></span>
+                            <span class="badge rounded-pill badge-notification bg-danger">1</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item me-3 me-lg-1">
+                        <a class="nav-link" href="#">
+                            <span><i class="fas fa-flag fa-lg"></i></span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item me-3 me-lg-1">
+                        <a class="nav-link" href="#">
+                            <span><i class="fas fa-video fa-lg"></i></span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item me-3 me-lg-1">
+                        <a class="nav-link" href="#">
+                            <span><i class="fas fa-shopping-bag fa-lg"></i></span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item me-3 me-lg-1">
+                        <a class="nav-link" href="#">
+                            <span><i class="fas fa-users fa-lg"></i></span>
+                            <span class="badge rounded-pill badge-notification bg-danger">2</span>
+                        </a>
+                    </li>
+                </ul>
+                <!-- Center elements -->
+            </div>
+        </nav>
+        <!-- Navbar -->
+
+        <table class="table align-middle mt-5 bg-white">
             <thead class="bg-light">
                 <tr>
                     <th>Cliente</th>
@@ -68,7 +111,8 @@
                                 @csrf
                                 @method('put')
 
-                                <select class="btn btn-primary" name="valueNewStatus" onchange="this.form.submit()">
+                                <select class="btn btn-primary btn-sm" name="valueNewStatus"
+                                    onchange="this.form.submit()">
                                     @forelse($possibleStatusValues as $statusOption)
                                         @if ($statusOption != $registro->status)
                                             @if ($statusOption == 'Pendiente')

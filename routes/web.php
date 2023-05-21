@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\PDFController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -48,6 +49,8 @@ Route::post('saveBooking', [StaticPagesController::class, 'saveBooking'])->name(
 
 //Rutas para el cliente
 Route::resource('clients', ClientController::class)->middleware('auth');
+
+//Ruta buscar cliente -No operativa-
 Route::get('client/search', 'ClientController@search')->name('client.search');
 
 //Rutas para los servicios
@@ -68,3 +71,5 @@ Route::get('/getAllServices', [ServiceController::class, 'getAllServices'])
 //Peticion mandar correo email de contacto
 Route::post('sendEmail', [StaticPagesController::class, 'sendEmail'])->name('sendEmail');
 
+//Peticion para generar el pdf de un registro
+Route::get('/generatePDF/{register}', [PDFController::class, 'getPDF'])->name('generatePDF');

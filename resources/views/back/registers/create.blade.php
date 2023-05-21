@@ -73,6 +73,7 @@
             </div>
 
             <input type="hidden" name="servicios" id="servicios">
+            
             <div>
                 <input type="submit" class="btn btn-primary btn-block mb-4" value="Crear registro">
             </div>

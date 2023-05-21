@@ -93,8 +93,9 @@ class RegisterController extends Controller
         //dividimos el array que nos llega del input servicios
         $arrayServicios = explode(",", $request->get('servicios'));
 
+        //cogemos el titulo de cada servicio añadido
         $registros_servicios = DB::table('services')
-            ->whereIn('description', $arrayServicios)
+            ->whereIn('title', $arrayServicios)
             ->get();
 
         //prueba utilizar metodo pluck, recoge todos los id asociados a el array servicios que tiene name de servicios
@@ -144,13 +145,9 @@ class RegisterController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Register $register)
     {
-        //
-    }
-
-    public function generateInvoice(Register $register)
-    {
-
+        $register->delete();
+        return redirect()->route('registers.index');
     }
 }
