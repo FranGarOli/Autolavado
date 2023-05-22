@@ -18,8 +18,54 @@ class RegisterController extends Controller
     {
         $registers = Register::orderBy('created_at', 'desc')->simplePaginate(10);
 
+        //contamos los registros con el estado en proceso
+        $registersInProgress = Register::where('status', 'En proceso')->count();
+
+        //sacamos los registros que sean para hoy
+        $today = Carbon::today();
+        $registersForToday = Register::whereDate('limitDate', $today)->count();
+
         $possibleStatusValues = ['Recibido', 'En proceso', 'Terminado', 'Pagado'];
-        return view('back.index', compact('registers', 'possibleStatusValues'));
+        return view('back.index', compact('registers', 'possibleStatusValues', 'registersInProgress', 'registersForToday'));
+    }
+
+    public function inProgress()
+    {
+        //ordenamos los registros por el estado en progreso y los ponemos en prioridad en la cola de registros
+        $registers = Register::orderByRaw("CASE WHEN status = 'En proceso' THEN 1 ELSE 2 END")
+            ->simplePaginate(10);
+
+        //contamos los registros con el estado en proceso
+        $registersInProgress = Register::where('status', 'En proceso')->get()->count();
+
+        //sacamos los registros que sean para hoy
+        $today = Carbon::today();
+        $registersForToday = Register::whereDate('limitDate', $today)->count();
+
+        //mandamos los posibles estados del registro
+        $possibleStatusValues = ['Recibido', 'En proceso', 'Terminado', 'Pagado'];
+
+        /*devolvemos la vista con las variables de los registros ordenados,
+            el num de registros con el estado En proceso y
+            devolvemos los posibles estados.
+        */
+
+        return view('back.index', compact('registers', 'possibleStatusValues', 'registersInProgress', 'registersForToday'));
+    }
+
+    public function limitDateRegisters()
+    {
+        $registers = Register::orderBy('limitDate', 'asc')->simplePaginate(10);
+
+        //contamos los registros con el estado en proceso
+        $registersInProgress = Register::where('status', 'En proceso')->get()->count();
+
+        //sacamos los registros que sean para hoy
+        $today = Carbon::today();
+        $registersForToday = Register::whereDate('limitDate', $today)->count();
+
+        $possibleStatusValues = ['Recibido', 'En proceso', 'Terminado', 'Pagado'];
+        return view('back.index', compact('registers', 'possibleStatusValues', 'registersInProgress', 'registersForToday'));
     }
 
     /**
@@ -67,7 +113,7 @@ class RegisterController extends Controller
             $client = new Client();
             $client->name = $request->get('name');
             $client->dni = $request->get('dni');
-            $client->phone = $request->get('phone');
+            $client->phone = trim(chunk_split($request->get('phone'), 3, ' '));
             $client->email = $request->get('email');
 
             $client->save();

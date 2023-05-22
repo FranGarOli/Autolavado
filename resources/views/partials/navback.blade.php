@@ -1,9 +1,9 @@
 <!-- Navbar -->
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark d-none d-lg-block mb-5">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-black d-none d-lg-block mb-5">
     <div class="container-fluid">
         <!-- Navbar brand -->
-        <a class="navbar-brand mt-2 mt-lg-0" href="{{ route('registers.index') }}">
-            <img src="https://i.postimg.cc/vTwfMJn7/image.png" height="15" alt="Autolavado Logo" loading="lazy" />
+        <a class="navbar-brand mt-2 mt-lg-0" href="{{ route('index') }}">
+            <img src="https://i.postimg.cc/fRRZSPkw/image-removebg-preview-1.png" height="15" alt="Autolavado Logo" loading="lazy" />
         </a>
 
         <div class="collapse navbar-collapse" id="navbarExample01">
@@ -20,15 +20,11 @@
                 <li class="nav-item active">
                     <a class="nav-link" aria-current="page" href="{{ route('services.create') }}">CREAR SERVICIO</a>
                 </li>
-
-                <li class="nav-item active">
-                    {{-- <a class="nav-link" aria-current="page" href="{{ route('services.create') }}">MODIFICAR CLIENTE</a> --}}
-                </li>
             </ul>
 
 
 
-            <ul class="navbar-nav d-flex flex-row">
+            <ul class="navbar-nav d-flex flex-row gap-3">
 
 
                 <form class="input-group align-items-center" action="{{ route('client.search') }}">

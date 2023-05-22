@@ -1,3 +1,3 @@
 <footer>
-    <span>Autolavado García</span>
+    <span>Panel de Administración - Autolavado García</span>
 </footer>

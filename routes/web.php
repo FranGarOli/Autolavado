@@ -35,6 +35,10 @@ Route::get('contact', [StaticPagesController::class, 'contact'])->name('contact'
 //reservar citas
 Route::get('dateBooking', [StaticPagesController::class, 'dateBookings'])->name('dateBookings');
 
+//Tipo servicio tapicerias
+Route::get('tapicerias', [StaticPagesController::class, 'tapicerias'])->name('tapicerias');
+//Tipo servicio motor
+Route::get('motor', [StaticPagesController::class, 'motor'])->name('motor');
 
 //BACK-------------------------------------------------------------------------
 //Rutas para el login
@@ -51,10 +55,18 @@ Route::post('saveBooking', [StaticPagesController::class, 'saveBooking'])->name(
 Route::resource('clients', ClientController::class)->middleware('auth');
 
 //Ruta buscar cliente -No operativa-
-Route::get('client/search', 'ClientController@search')->name('client.search');
+Route::get('search', [ClientController::class, 'search'])->name('client.search');
 
 //Rutas para los servicios
 Route::resource('services', ServiceController::class)->middleware('auth');
+//Ruta saca servicios en proceso
+Route::get('inProgress', [RegisterController::class, 'inProgress'])->middleware('auth')
+    ->name('inProgress');
+
+//Ruta saca servicios que tienen prioridad por fecha proxima a recogida
+Route::get('limitDateRegisters', [RegisterController::class, 'limitDateRegisters'])->middleware('auth')
+    ->name('limitDateRegisters');
+
 
 //peticion api coger datos clientes
 Route::get('/getAllClients', [ServiceController::class, 'getAllClients'])

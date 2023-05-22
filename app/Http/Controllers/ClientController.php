@@ -11,11 +11,17 @@ class ClientController extends Controller
 
     public function search(Request $request){
 
-        $name = $request->input('name');
+        $name = $request->input('nameSearch');
         $client = Client::where('name', $name)->first();
 
-
-        return redirect()->route('registers.index')->with('mensaje', 'Cliente no encontrado');
+        //si encuentra un cliente muestra la información del cliente
+        if  ($client){
+            return redirect()->route('clients.show' , ['client' => $client]);
+        }
+        //si no encuentra muestra el indice y un mensaje de no ecncontrado
+        else{
+            return redirect()->route('registers.index')->with('mensajeError', 'Cliente no encontrado');
+        }
 
     }
     /**

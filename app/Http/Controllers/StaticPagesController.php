@@ -33,6 +33,14 @@ class StaticPagesController extends Controller
         return view('front.cookies');
     }
 
+    public function tapicerias(){
+        return view('front.typeServices.tapicerias');
+    }
+
+    public function motor(){
+        return view('front.typeServices.motor');
+    }
+
     public function sendEmail(Request $request){
 
         //Datos que recibimos del formulario

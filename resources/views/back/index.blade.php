@@ -11,41 +11,35 @@
             </div>
         @endif
 
+        @if (session('mensajeError'))
+        <div class="alert alert-danger mt-5">
+            {{ session('mensajeError') }}
+        </div>
+    @endif
+
         <!-- Navbar-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-0">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mt-5">
             <div class="container-fluid justify-content-between">
 
                 <!-- Center elements -->
                 <ul class="navbar-nav flex-row d-none d-md-flex">
                     <li class="nav-item me-3 me-lg-1 active">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ route('registers.index') }}">
                             <span><i class="fas fa-home fa-lg"></i></span>
-                            <span class="badge rounded-pill badge-notification bg-danger">1</span>
                         </a>
                     </li>
 
                     <li class="nav-item me-3 me-lg-1">
-                        <a class="nav-link" href="#">
-                            <span><i class="fas fa-flag fa-lg"></i></span>
+                        <a class="nav-link" href="{{ route('inProgress') }}">
+                            <span><i class="fas fa-car fa-lg"></i></span>
+                            <span class="badge rounded-pill badge-notification bg-warning">{{$registersInProgress}}</span>
                         </a>
                     </li>
 
                     <li class="nav-item me-3 me-lg-1">
-                        <a class="nav-link" href="#">
-                            <span><i class="fas fa-video fa-lg"></i></span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item me-3 me-lg-1">
-                        <a class="nav-link" href="#">
-                            <span><i class="fas fa-shopping-bag fa-lg"></i></span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item me-3 me-lg-1">
-                        <a class="nav-link" href="#">
-                            <span><i class="fas fa-users fa-lg"></i></span>
-                            <span class="badge rounded-pill badge-notification bg-danger">2</span>
+                        <a class="nav-link" href="{{route('limitDateRegisters')}}">
+                            <span><i class="fas fa-clock fa-lg"></i></span>
+                            <span class="badge rounded-pill badge-notification bg-danger">{{$registersForToday}}</span>
                         </a>
                     </li>
                 </ul>
@@ -54,7 +48,7 @@
         </nav>
         <!-- Navbar -->
 
-        <table class="table align-middle mt-5 bg-white">
+        <table class="table align-middle bg-white">
             <thead class="bg-light">
                 <tr>
                     <th>Cliente</th>
@@ -62,7 +56,7 @@
                     <th>Total</th>
                     <th>Estado</th>
                     <th>Telefono</th>
-                    <th>Fecha</th>
+                    <th>Fecha recogida</th>
                     <th></th>
                 </tr>
             </thead>
@@ -111,8 +105,7 @@
                                 @csrf
                                 @method('put')
 
-                                <select class="btn btn-primary btn-sm" name="valueNewStatus"
-                                    onchange="this.form.submit()">
+                                <select class="btn btn-primary btn-sm" name="valueNewStatus" onchange="this.form.submit()">
                                     @forelse($possibleStatusValues as $statusOption)
                                         @if ($statusOption != $registro->status)
                                             @if ($statusOption == 'Pendiente')
@@ -150,7 +143,7 @@
 
                         <!--COLUMNA VER FECHA -->
                         <td>
-                            <p class="fw-normal mb-1">{{ $registro->created_at }}</p>
+                            <p class="fw-normal mb-1">{{ date('H:i:s d-m-Y', strtotime($registro->limitDate)) }}</p>
                         </td>
 
                         <!--COLUMNA VER UN REGISTRO-->
@@ -166,23 +159,20 @@
         </table>
 
         <ul class="pagination d-flex gap-2">
-            <li class="page-item disabled">
-                <a class="page-link">Previous</a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item active" aria-current="page">
-                <a class="page-link" href="#">2 <span class="visually-hidden">(current)</span></a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            @if ($registers->currentPage() <= 1)
+                <li class="page-item disabled">
+                    <a class="page-link">Anterior</a>
+                </li>
+            @else
+                <li class="page-item">
+                    <a class="page-link" href="{{ $registers->previousPageUrl() }}">Anterior</a>
+                </li>
+            @endif
+
             <li class="page-item">
-                <a class="page-link" href="">Next</a>
+                <a class="page-link" href="{{ $registers->nextPageUrl() }}">Siguiente</a>
             </li>
         </ul>
-
-
-        <div>
-            {{ $registers->links() }}
-        </div>
 
     </main>
 @endsection

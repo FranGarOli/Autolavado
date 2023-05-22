@@ -17,7 +17,7 @@
                 <h5 class="card-title">{{ $client->email }}</h5>
                 <p class="card-text">DNI : {{ $client->dni }}</p>
                 <p class="card-text">Teléfono : {{ $client->phone }}</p>
-                <p class="card-text">Desde : {{ $client->created_at }}</p>
+                <p class="card-text">Desde :  {{ date('H:i:s d-m-Y', strtotime($client->created_at)) }}</p>
                 <a href="{{ route('clients.edit', ['client' => $client]) }}" class="btn btn-primary">Editar</a>
             </div>
         </div>

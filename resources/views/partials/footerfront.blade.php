@@ -55,7 +55,7 @@
     <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025);">
         Fran García
         © 2023 Copyright:
-      <a class="text-reset fw-bold"  href="https://mdbootstrap.com/">Autolavadogarcia.com</a>
+      <a class="text-reset fw-bold"  href="https://autolavadogarcia.com/">Autolavadogarcia.com</a>
     </div>
     <!-- Copyright -->
   </footer>

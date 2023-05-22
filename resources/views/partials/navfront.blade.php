@@ -4,7 +4,7 @@
         <!-- Navbar brand -->
         <a class="navbar-brand mt-2 mt-lg-0" href="{{route('index')}}">
             <img
-            src="https://i.postimg.cc/vTwfMJn7/image.png"
+            src="https://i.postimg.cc/fRRZSPkw/image-removebg-preview-1.png"
             height="15"
             alt="Autolavado Logo"
             loading="lazy"
@@ -32,7 +32,7 @@
 
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <li>
-                        <a class="dropdown-item" href="#">Limpieza de tapiceria</a>
+                        <a class="dropdown-item" href="{{route('tapicerias')}}">Limpieza de tapiceria</a>
                     </li>
 
                     <li>
@@ -44,7 +44,7 @@
                     </li>
 
                     <li>
-                        <a class="dropdown-item" href="#">Limpiezas de motor</a>
+                        <a class="dropdown-item" href="{{route('motor')}}">Limpiezas de motor</a>
                     </li>
 
                     <li>

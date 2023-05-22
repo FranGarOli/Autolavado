@@ -107,8 +107,8 @@
 
             </div>
             <div class="card-footer text-muted mt-2 d-flex flex-row justify-content-center align-items-center gap-5">
-                <span>Fecha de creación: {{ $register->entryDate }}</span>
-                <span>Fecha de finalización: {{ $register->updated_at }}</span>
+                <span>Fecha de creación: {{ date('H:i:s d-m-Y', strtotime($register->entryDate)) }}</span>
+                <span>Fecha de finalización: {{ date('H:i:s d-m-Y', strtotime($register->updated_at)) }}</span>
             </div>
         </div>
         {{-- <h1>Registro: {{$register->id}}</h1><br>
