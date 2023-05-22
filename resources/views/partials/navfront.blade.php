@@ -64,7 +64,7 @@
                     </li>
 
                     <li>
-                        <a class="dropdown-item" href="#">Ofertas</a>
+                        <a class="dropdown-item" href="{{route('ofertas')}}">Ofertas</a>
                     </li>
                 </ul>
 

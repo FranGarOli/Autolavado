@@ -41,6 +41,10 @@ class StaticPagesController extends Controller
         return view('front.typeServices.motor');
     }
 
+    public function ofertas(){
+        return view('front.typeServices.ofertas');
+    }
+
     public function sendEmail(Request $request){
 
         //Datos que recibimos del formulario

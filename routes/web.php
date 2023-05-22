@@ -39,7 +39,8 @@ Route::get('dateBooking', [StaticPagesController::class, 'dateBookings'])->name(
 Route::get('tapicerias', [StaticPagesController::class, 'tapicerias'])->name('tapicerias');
 //Tipo servicio motor
 Route::get('motor', [StaticPagesController::class, 'motor'])->name('motor');
-
+//Tipo servicio ofertas
+Route::get('ofertas', [StaticPagesController::class, 'ofertas'])->name('ofertas');
 //BACK-------------------------------------------------------------------------
 //Rutas para el login
 Route::get('login', [LoginController::class, 'loginForm'])->name('loginForm');
