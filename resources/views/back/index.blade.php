@@ -12,10 +12,10 @@
         @endif
 
         @if (session('mensajeError'))
-        <div class="alert alert-danger mt-5">
-            {{ session('mensajeError') }}
-        </div>
-    @endif
+            <div class="alert alert-danger mt-5">
+                {{ session('mensajeError') }}
+            </div>
+        @endif
 
         <!-- Navbar-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light mt-5">
@@ -32,14 +32,14 @@
                     <li class="nav-item me-3 me-lg-1">
                         <a class="nav-link" href="{{ route('inProgress') }}">
                             <span><i class="fas fa-car fa-lg"></i></span>
-                            <span class="badge rounded-pill badge-notification bg-warning">{{$registersInProgress}}</span>
+                            <span class="badge rounded-pill badge-notification bg-warning">{{ $registersInProgress }}</span>
                         </a>
                     </li>
 
                     <li class="nav-item me-3 me-lg-1">
-                        <a class="nav-link" href="{{route('limitDateRegisters')}}">
+                        <a class="nav-link" href="{{ route('limitDateRegisters') }}">
                             <span><i class="fas fa-clock fa-lg"></i></span>
-                            <span class="badge rounded-pill badge-notification bg-danger">{{$registersForToday}}</span>
+                            <span class="badge rounded-pill badge-notification bg-danger">{{ $registersForToday }}</span>
                         </a>
                     </li>
                 </ul>
@@ -105,29 +105,35 @@
                                 @csrf
                                 @method('put')
 
-                                <select class="btn btn-primary btn-sm" name="valueNewStatus" onchange="this.form.submit()">
+                                <select
+                                    class="btn btn-sm text-white @if ($registro->status == 'Pendiente') bg-info @elseif ($registro->status == 'Recibido') bg-warning @elseif($registro->status == 'En proceso') bg-danger @elseif ($registro->status == 'Terminado') bg-secondary @elseif ($registro->status == 'Pagado') bg-success @endif"
+                                    name="valueNewStatus" onchange="this.form.submit()">
                                     @forelse($possibleStatusValues as $statusOption)
                                         @if ($statusOption != $registro->status)
                                             @if ($statusOption == 'Pendiente')
-                                                <option class="bg-secondary">{{ $statusOption }}</option>
+                                                <option class="bg-info">{{ $statusOption }}</option>
                                             @elseif ($statusOption == 'Recibido')
                                                 <option class="bg-warning">{{ $statusOption }}</option>
                                             @elseif ($statusOption == 'En proceso')
-                                                <option class="bg-warning">{{ $statusOption }}</option>
+                                                <option class="bg-danger">{{ $statusOption }}</option>
                                             @elseif ($statusOption == 'Terminado')
-                                                <option class="bg-info">{{ $statusOption }}</option>
+                                                <option class="bg-secondary">{{ $statusOption }}</option>
                                             @elseif ($statusOption == 'Pagado')
                                                 <option class="bg-success">{{ $statusOption }}</option>
                                             @endif
                                         @else
                                             @if ($registro->status == 'Pendiente')
-                                                <option selected class="bg-secondary">{{ $statusOption }}</option>
+                                                <option selected class="bg-info">{{ $statusOption }}</option>
+
                                             @elseif ($registro->status == 'Recibido')
-                                                <option selected class="bg-secondary">{{ $statusOption }}</option>
-                                            @elseif ($registro->status == 'En proceso')
                                                 <option selected class="bg-warning">{{ $statusOption }}</option>
+
+                                            @elseif ($registro->status == 'En proceso')
+                                                <option selected class="bg-danger">{{ $statusOption }}</option>
+
                                             @elseif ($registro->status == 'Terminado')
                                                 <option selected class="bg-secondary">{{ $statusOption }}</option>
+                                                
                                             @elseif ($registro->status == 'Pagado')
                                                 <option selected class="bg-success">{{ $statusOption }}</option>
                                             @endif

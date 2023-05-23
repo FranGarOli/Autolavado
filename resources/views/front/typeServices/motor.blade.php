@@ -4,7 +4,7 @@
 @section('cuerpo')
     <main class=" d-flex flex-column gap-5 text-center mt-5">
 
-        <div class="container mt-5">
+        <div class="container mt-5 d-flex flex-column gap-3 justify-content-center align-items-center">
             <h1>Limpieza de motor</h1>
             <p>La limpieza de motor se efectúa con producto dispersante de grasas y aceite, no vasados en disolventes y con
                 pH controlados para no marcar gomas, plásticos, pintura, posteriormente después de dejar actuar el producto
@@ -19,6 +19,15 @@
                 <img src="https://www.autolavadogarcia.com/uploads/img5da47e126b6f9.jpg" class="img-fluid" />
             </div>
 
+            <div class="d-flex flex-row justify-content-center align-items-center gap-3">
+                <h3>LIMPIEZA MOTOR POR ARRIBA 45 €</h3>
+                <img src="https://www.autolavadogarcia.com/uploads/img4f4a1389549bc.jpg" class="img-fluid" alt="">
+            </div>
+
+            <div class="d-flex flex-row justify-content-center align-items-center gap-3">
+                <img src="https://www.autolavadogarcia.com/uploads/img4f4a13d3ecc41.jpg" class="img-fluid" alt="">
+                <h3>LIMPIEZA MOTOR POR DEBAJO 39 €</h3>
+            </div>
             {{-- <h1>Servicio de tapicería completa</h1>
 
         <p>El servicio de tapicería completa o también llamada limpieza integral total, es una limpieza exhaustiva de cada parte del vehículo, desmontando, limpiando, montando y secando posteriormente el interior del vehículo. En cada zona del vehículo se utilizaran los productos apropiados todos ellos biodegradables y controlados los PH para no decolorar telas, pieles, plásticos…. El acabado del servicio es espectacular, tanto en los colores vivos que recobran las telas, como los plásticos un aspecto natural, en general la primera impresión al recoger el vehículo es una sensación agradable de limpio y nuevo.</p>

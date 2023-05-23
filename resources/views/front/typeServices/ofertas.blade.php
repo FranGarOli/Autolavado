@@ -3,32 +3,29 @@
 
 @section('cuerpo')
     <main class="mt-5 d-flex flex-column gap-5 container text-center">
+        <h1 class="mt-5">¡OFERTAS!</h1>
 
-
-        <div class="container mt-5 d-flex flex-column gap-5">
-            <div class="container d-flex flex-row justify-content-center align-items-center gap-3">
-                <div>
-                    <h2>Lavado interior y exterior económico en valencia 13,90 €</h2>
-                    <p>Consta del lavado exterior automático, aspirado interior del vehículo desempolvado de guantera y
-                        plásticos,
-                        secado de cantoneras de puertas y ambientador.</p>
-                </div>
+        <div class="container d-flex flex-column gap-5">
+            <div class="d-flex flex-row bg-light border rounded p-5 gap-3 justify-content-center align-items-center">
+                <h2>Lavado interior y exterior económico en valencia 13,90 €</h2>
+                <p>Consta del lavado exterior automático, aspirado interior del vehículo desempolvado de guantera y
+                    plásticos,
+                    secado de cantoneras de puertas y ambientador.</p>
                 <img src="https://www.autolavadogarcia.com/uploads/img5e4683d5f1f4c.jpg" class="img-fluid" width="300px" />
             </div>
 
-            <div class="container d-flex flex-row justify-content-center align-items-center gap-3">
+            <div class="d-flex flex-row bg-light border rounded p-5 gap-3 justify-content-center align-items-center">
                 <img src="https://www.autolavadogarcia.com/uploads/img62de6ca81644e.jpg" class="img-fluid" width="300px" />
-                <div>
-                    <h2>Lavado interior y exterior (BASICO) PVP 23,50 €</h2>
-                    <p>Lavado interior y exterior
-                        Consta del lavado exterior automático, aspirado interior del vehículo con maletero, limpieza de
-                        guantera
-                        y plásticos interiores del vehículo , limpieza de cristales secado de cantoneras y puertas,
-                        ambientador.(vehiculos pequeños y medianos)</p>
-                </div>
+
+                <p>Lavado interior y exterior
+                    Consta del lavado exterior automático, aspirado interior del vehículo con maletero, limpieza de
+                    guantera
+                    y plásticos interiores del vehículo , limpieza de cristales secado de cantoneras y puertas,
+                    ambientador.(vehiculos pequeños y medianos)</p>
+                <h2>Lavado interior y exterior (BASICO) PVP 23,50 €</h2>
             </div>
 
-            <div>
+            <div class="d-flex flex-column bg-light border rounded p-5 gap-3 justify-content-center">
                 <h2>Lavado interior y exterior (COMPLETO) PVP 28 €</h2>
                 <p>Consta del lavado exterior automático ( con limpieza de bajos y llantas, secado manual y producto
                     regenerador de neumáticos) aspirado a fondo de rincones del vehículo y maletero, limpieza de guantera y
@@ -38,7 +35,9 @@
                     ambientador.
                     Regenerador de neumáticos y plásticos exteriores.</p>
 
-                <img src="https://www.autolavadogarcia.com/uploads/img62de6ce82933e.jpg" class="img-fluid" width="300px" />
+                <div>
+                    <img src="https://www.autolavadogarcia.com/uploads/img62de6ce82933e.jpg" class="img-fluid" width="300px" />
+                </div>
             </div>
 
         </div>

@@ -36,11 +36,11 @@
                     </li>
 
                     <li>
-                        <a class="dropdown-item" href="#">Limpieza interior</a>
+                        <a class="dropdown-item" href="{{route('interior')}}">Limpieza interior</a>
                     </li>
 
                     <li>
-                        <a class="dropdown-item" href="#">Limpieza exterior</a>
+                        <a class="dropdown-item" href="{{route('exterior')}}">Limpieza exterior</a>
                     </li>
 
                     <li>
@@ -48,19 +48,19 @@
                     </li>
 
                     <li>
-                        <a class="dropdown-item" href="#">Limpieza completa</a>
+                        <a class="dropdown-item" href="{{route('completas')}}">Limpieza completa</a>
                     </li>
 
                     <li>
-                        <a class="dropdown-item" href="#">Pulidas</a>
+                        <a class="dropdown-item" href="{{route('pulidas')}}">Pulidas</a>
                     </li>
 
                     <li>
-                        <a class="dropdown-item" href="#">Desinfecciones</a>
+                        <a class="dropdown-item" href="{{route('desinfecciones')}}">Desinfecciones</a>
                     </li>
 
                     <li>
-                        <a class="dropdown-item" href="#">Productos</a>
+                        <a class="dropdown-item" href="{{route('productos')}}">Productos</a>
                     </li>
 
                     <li>

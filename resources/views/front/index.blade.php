@@ -19,7 +19,7 @@
                     <h1 class="mb-3">AUTOLAVADO GARCÍA</h1>
                     <h5 class="mb-4">Somos una empresa familiar consolidada en el sector limpieza y mantenimiento del vehículo desde 1973, mas de 40 años de experiencia que nos avalan en valencia</h5>
 
-                    <a class="btn btn-outline-light btn-lg m-2" href="" role="button">TRABAJOS REALIZADOS</a>
+                    <a class="btn btn-outline-light btn-lg m-2" href="{{route('trabajos')}}" role="button">TRABAJOS REALIZADOS</a>
                     <a class="btn btn-outline-light btn-lg m-2 active" href="{{route('dateBookings')}}" role="button">PEDIR CITA</a>
                     </div>
                 </div>
@@ -67,24 +67,23 @@
 
       <!--Section: Content-->
       <section class="text-center">
-        <h4 class="mb-5"><strong>Facilis consequatur eligendi</strong></h4>
+        <h4 class="mb-5"><strong>Servicios destacados!</strong></h4>
 
         <div class="row">
           <div class="col-lg-4 col-md-12 mb-4">
             <div class="card">
               <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid" />
-                <a href="#!">
+                <img src="https://www.autolavadogarcia.com/uploads/img5da47e126b6f9.jpg" class="img-fluid" width="300px">
+                <a href="{{route('motor')}}">
                   <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
                 </a>
               </div>
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
+                <h5 class="card-title">Limpieza de motor</h5>
                 <p class="card-text">
-                  Some quick example text to build on the card title and make
-                  up the bulk of the card's content.
+                  Disponible la limpieza de motor por arriba y/o por debajo!
                 </p>
-                <a href="#!" class="btn btn-primary">Button</a>
+                <a href="{{route('motor')}}" class="btn btn-primary">Información</a>
               </div>
             </div>
           </div>
@@ -92,18 +91,17 @@
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card">
               <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                <img src="https://mdbootstrap.com/img/new/standard/nature/023.jpg" class="img-fluid" />
-                <a href="#!">
+                <img src="https://www.autolavadogarcia.com/uploads/img51b4cfcc88139.jpg" class="img-fluid" />
+                <a href="{{route('pulidas')}}">
                   <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
                 </a>
               </div>
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
+                <h5 class="card-title">Pulida de faros</h5>
                 <p class="card-text">
-                  Some quick example text to build on the card title and make
-                  up the bulk of the card's content.
+                  Pulido y lacado de faros para pasar la ITV favorablemente!
                 </p>
-                <a href="#!" class="btn btn-primary">Button</a>
+                <a href="{{route('pulidas')}}" class="btn btn-primary">Información</a>
               </div>
             </div>
           </div>
@@ -111,18 +109,17 @@
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card">
               <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                <img src="https://mdbootstrap.com/img/new/standard/nature/111.jpg" class="img-fluid" />
-                <a href="#!">
+                <img src="https://www.autolavadogarcia.com/uploads/img4f4a19286e03d.jpg" class="img-fluid" />
+                <a href="{{route('exterior')}}">
                   <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
                 </a>
               </div>
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
+                <h5 class="card-title">Limpiezas completas</h5>
                 <p class="card-text">
-                  Some quick example text to build on the card title and make
-                  up the bulk of the card's content.
+                  Perfectos acabados, tanto exteriores como interiores!
                 </p>
-                <a href="#!" class="btn btn-primary">Button</a>
+                <a href="{{route('exterior')}}" class="btn btn-primary">Información</a>
               </div>
             </div>
           </div>

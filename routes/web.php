@@ -35,12 +35,29 @@ Route::get('contact', [StaticPagesController::class, 'contact'])->name('contact'
 //reservar citas
 Route::get('dateBooking', [StaticPagesController::class, 'dateBookings'])->name('dateBookings');
 
+//---vistas servicios
 //Tipo servicio tapicerias
 Route::get('tapicerias', [StaticPagesController::class, 'tapicerias'])->name('tapicerias');
+//Tipo servicio ofertas
+Route::get('interior', [StaticPagesController::class, 'interior'])->name('interior');
 //Tipo servicio motor
 Route::get('motor', [StaticPagesController::class, 'motor'])->name('motor');
 //Tipo servicio ofertas
 Route::get('ofertas', [StaticPagesController::class, 'ofertas'])->name('ofertas');
+//Tipo servicio completa
+Route::get('completas', [StaticPagesController::class, 'completas'])->name('completas');
+//Tipo servicio desinfecciones
+Route::get('desinfecciones', [StaticPagesController::class, 'desinfecciones'])->name('desinfecciones');
+//Tipo servicio exterior
+Route::get('exterior', [StaticPagesController::class, 'exterior'])->name('exterior');
+//Tipo servicio pulidas
+Route::get('pulidas', [StaticPagesController::class, 'pulidas'])->name('pulidas');
+//Tipo servicio productos
+Route::get('productos', [StaticPagesController::class, 'productos'])->name('productos');
+//Trabajos realizados
+Route::get('trabajos', [StaticPagesController::class, 'trabajos'])->name('trabajos');
+
+
 //BACK-------------------------------------------------------------------------
 //Rutas para el login
 Route::get('login', [LoginController::class, 'loginForm'])->name('loginForm');

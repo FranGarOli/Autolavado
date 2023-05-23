@@ -45,6 +45,34 @@ class StaticPagesController extends Controller
         return view('front.typeServices.ofertas');
     }
 
+    public function interior(){
+        return view('front.typeServices.interior');
+    }
+
+    public function completas(){
+        return view('front.typeServices.completas');
+    }
+
+    public function desinfecciones(){
+        return view('front.typeServices.desinfecciones');
+    }
+
+    public function exterior(){
+        return view('front.typeServices.exterior');
+    }
+
+    public function pulidas(){
+        return view('front.typeServices.pulidas');
+    }
+
+    public function productos(){
+        return view('front.typeServices.productos');
+    }
+
+    public function trabajos(){
+        return view('front.typeServices.trabajos');
+    }
+
     public function sendEmail(Request $request){
 
         //Datos que recibimos del formulario

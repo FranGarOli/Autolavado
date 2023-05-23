@@ -25,7 +25,7 @@ class RegisterController extends Controller
         $today = Carbon::today();
         $registersForToday = Register::whereDate('limitDate', $today)->count();
 
-        $possibleStatusValues = ['Recibido', 'En proceso', 'Terminado', 'Pagado'];
+        $possibleStatusValues = ['Pendiente','Recibido', 'En proceso', 'Terminado', 'Pagado'];
         return view('back.index', compact('registers', 'possibleStatusValues', 'registersInProgress', 'registersForToday'));
     }
 
@@ -43,7 +43,7 @@ class RegisterController extends Controller
         $registersForToday = Register::whereDate('limitDate', $today)->count();
 
         //mandamos los posibles estados del registro
-        $possibleStatusValues = ['Recibido', 'En proceso', 'Terminado', 'Pagado'];
+        $possibleStatusValues = ['Pendiente','Recibido', 'En proceso', 'Terminado', 'Pagado'];
 
         /*devolvemos la vista con las variables de los registros ordenados,
             el num de registros con el estado En proceso y
@@ -64,7 +64,7 @@ class RegisterController extends Controller
         $today = Carbon::today();
         $registersForToday = Register::whereDate('limitDate', $today)->count();
 
-        $possibleStatusValues = ['Recibido', 'En proceso', 'Terminado', 'Pagado'];
+        $possibleStatusValues = ['Pendiente','Recibido', 'En proceso', 'Terminado', 'Pagado'];
         return view('back.index', compact('registers', 'possibleStatusValues', 'registersInProgress', 'registersForToday'));
     }
 
@@ -165,7 +165,7 @@ class RegisterController extends Controller
      */
     public function show(Register $register)
     {
-        $possibleStatusValues = ['Recibido', 'En proceso', 'Terminado', 'Pagado'];
+        $possibleStatusValues = ['Pendiente','Recibido', 'En proceso', 'Terminado', 'Pagado'];
         return view('back.registers.show', compact('register', 'possibleStatusValues'));
     }
 
