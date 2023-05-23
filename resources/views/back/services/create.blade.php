@@ -12,18 +12,27 @@
 
             <div class="form-group mb-4">
                 <label class="form-label" for="title">Titulo</label>
-                <input type="text" name="title" id="title" class="form-control">
+                <input type="text" name="title" id="title" class="form-control" value="{{old('title')}}">
+                @error('title')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
 
             <div class="form-group mb-4">
                 <label for="description" class="form-label">Descripción</label>
                 <textarea name="description" class="form-control md-textarea-auto-grow w-100" id="description" cols="50"
-                    rows="5" placeholder="Introduce aquí el texto explicativo sobre dicho servicio..."></textarea>
+                    rows="5" placeholder="Introduce aquí el texto explicativo sobre dicho servicio...">{{old('description')}}</textarea>
+                @error('description')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
 
             <div class="form-group mb-4">
                 <label class="form-label" for="price">Precio</label>
-                <input type="text" name="price" id="price" class="form-control">
+                <input type="text" name="price" id="price" class="form-control" value="{{old('price')}}" placeholder="Numeros / Numeros separados por .">
+                @error('price')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
 
             <!--FALTA AÑADIR CATEGORIA EN MIGRACION-->
@@ -44,7 +53,10 @@
             </div>
 
             <div class="form-group mb-4 text-center">
-                <span>Visible <input type="checkbox" name="visible" id="visible"></span>
+                <label>
+                    <input type="checkbox" name="visible" id="visible"{{ old('visible') ? ' checked' : '' }}>
+                    Visible
+                </label>
             </div>
 
             <button type="submit" class="btn btn-primary btn-block mb-4">Crear</button>

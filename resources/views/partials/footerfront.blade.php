@@ -38,10 +38,7 @@
             <!-- Links -->
             <h6 class="text-uppercase fw-bold mb-4">Contacto</h6>
             <p><i class="fas fa-home me-3 text-secondary"></i> Carrer de la Vila de Manuel, 6, 46019</p>
-            <p>
-              <i class="fas fa-envelope me-3 text-secondary"></i>
-              info@autolavadogarcia.com
-            </p>
+            <p><i class="fas fa-envelope me-3 text-secondary"></i>info@autolavadogarcia.com</p>
             <p><i class="fas fa-phone me-3 text-secondary"></i> + 34 623 55 19 30</p>
           </div>
           <!-- Grid column -->

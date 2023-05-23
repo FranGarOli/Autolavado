@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Service;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\ServiceRequest;
 
 class ServiceController extends Controller
 {
@@ -39,7 +40,7 @@ class ServiceController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ServiceRequest $request)
     {
         $service = new Service();
         $service->title = $request->get('title');

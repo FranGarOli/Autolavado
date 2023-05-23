@@ -42,22 +42,26 @@
         <div class="row">
             <div class="col-12">
                 <div class="invoice-header text-center mb-4">
-                    <h2>Autolavado García</h2>
+                    <img src="https://i.postimg.cc/W3f0BNcg/image.png" alt="" width="400px">
                 </div>
+            </div>
+            <div class="d-flex flex-col text-center">
+                <p>Dirección: Carrer de la Vila de Manuel, 6, 46019</p>
+                <p>Email: info@autolavadogarcia.com</p>
+                <p>Teléfono: + 34 623 55 19 30</p>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-6 mb-4">
-                <h2>Información del cliente:</h2>
+        <div class="d-flex flex-row">
+            <div class="d-flex flex-column">
+                <h3>Información del cliente:</h3>
                 <p>Nombre: {{ $register->client->name }}</p>
                 <p>DNI: {{ $register->client->dni }}</p>
                 <p>Telefono: {{ $register->client->phone }}</p>
                 <p>Dirección email: {{ $register->client->email }}</p>
-                <!-- Agrega más detalles del cliente aquí -->
             </div>
-            <div class="col-6 mb-4">
-                <h2>Información de la factura:</h2>
+            <div class="d-flex flex-column">
+                <h3>Información de la factura:</h3>
                 <p>Número de factura: {{ $register->id }}</p>
                 <p>Fecha: {{ $register->created_at }}</p>
                 <p>Modelo del vehículo: {{ $register->model }}</p>
@@ -68,7 +72,7 @@
 
         <div class="row">
             <div class="col-12">
-                <h2>Detalles de la factura:</h2>
+                <h3>Detalles de la factura:</h3>
                 <div class="invoice-body">
                     <table class="table table-striped">
                         <thead>
@@ -88,9 +92,9 @@
                                     <td>{{ $service->title }}</td>
                                     <td>1</td>
                                     <td>{{ $service->price }} €</td>
-                                </tr>
-                                @empty
-                                    <p>No hay servicios asociados...</p>
+                            </tr>
+                        @empty
+                            <p>No hay servicios asociados...</p>
                             @endforelse
                         </tbody>
                     </table>
@@ -101,10 +105,13 @@
         <div class="row">
             <div class="col-12">
                 <div class="invoice-footer justify-content-end">
-                    <h4>Total: {{$total}} €</h4>
+                    <h4>Total: {{ $total }} €</h4>
                 </div>
             </div>
         </div>
+
+    </div>
+
     </div>
 </body>
 

@@ -38,31 +38,34 @@
                 </div>
 
                 <div class="d-flex flex-column gap-1">
-                    <form action="{{ route('registers.update', ['register' => $register]) }} " method="post" class="d-flex justify-content-end">
+                    <form action="{{ route('registers.update', ['register' => $register]) }} " method="post"
+                        class="d-flex justify-content-end">
                         @csrf
                         @method('put')
 
-                        <select class="btn btn-primary btn-sm" name="valueNewStatus" onchange="this.form.submit()">
+                        <select
+                            class="btn btn-sm text-white @if ($register->status == 'Pendiente') bg-info @elseif ($register->status == 'Recibido') bg-warning @elseif($register->status == 'En proceso') bg-danger @elseif ($register->status == 'Terminado') bg-secondary @elseif ($register->status == 'Pagado') bg-success @endif"
+                            name="valueNewStatus" onchange="this.form.submit()">
                             @forelse($possibleStatusValues as $statusOption)
                                 @if ($statusOption != $register->status)
                                     @if ($statusOption == 'Pendiente')
-                                        <option class="bg-secondary">{{ $statusOption }}</option>
+                                        <option class="bg-info">{{ $statusOption }}</option>
                                     @elseif ($statusOption == 'Recibido')
                                         <option class="bg-warning">{{ $statusOption }}</option>
                                     @elseif ($statusOption == 'En proceso')
-                                        <option class="bg-warning">{{ $statusOption }}</option>
+                                        <option class="bg-danger">{{ $statusOption }}</option>
                                     @elseif ($statusOption == 'Terminado')
-                                        <option class="bg-info">{{ $statusOption }}</option>
+                                        <option class="bg-secondary">{{ $statusOption }}</option>
                                     @elseif ($statusOption == 'Pagado')
                                         <option class="bg-success">{{ $statusOption }}</option>
                                     @endif
                                 @else
                                     @if ($register->status == 'Pendiente')
-                                        <option selected class="bg-secondary">{{ $statusOption }}</option>
+                                        <option selected class="bg-info">{{ $statusOption }}</option>
                                     @elseif ($register->status == 'Recibido')
-                                        <option selected class="bg-secondary">{{ $statusOption }}</option>
-                                    @elseif ($register->status == 'En proceso')
                                         <option selected class="bg-warning">{{ $statusOption }}</option>
+                                    @elseif ($register->status == 'En proceso')
+                                        <option selected class="bg-danger">{{ $statusOption }}</option>
                                     @elseif ($register->status == 'Terminado')
                                         <option selected class="bg-secondary">{{ $statusOption }}</option>
                                     @elseif ($register->status == 'Pagado')
@@ -77,27 +80,30 @@
                     <a href="{{ route('generatePDF', ['register' => $register]) }}"
                         class="btn btn-primary d-flex justify-content-center align-items-center">IMPRIMIR FACTURA</a>
 
-                    <button type="button" class="btn btn-danger " data-mdb-toggle="modal" data-mdb-target="#staticBackdrop">
+                    <button type="button" class="btn btn-danger " data-mdb-toggle="modal"
+                        data-mdb-target="#staticBackdrop">
                         Eliminar registro
-                        </button>
+                    </button>
                     <!-- Modal -->
                     <div class="modal fade" id="staticBackdrop" data-mdb-backdrop="static" data-mdb-keyboard="false"
                         tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="staticBackdropLabel">Eliminar registro de {{$register->client->name}}</h5>
+                                    <h5 class="modal-title" id="staticBackdropLabel">Eliminar registro de
+                                        {{ $register->client->name }}</h5>
                                     <button type="button" class="btn-close" data-mdb-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">Quieres eliminar el registro seleccionado?</div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Cancelar</button>
-                                    <form action="{{ route('registers.destroy', ['register' => $register]) }}" method="POST">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-mdb-dismiss="modal">Cancelar</button>
+                                    <form action="{{ route('registers.destroy', ['register' => $register]) }}"
+                                        method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit"
-                                            class="btn btn-danger">Eliminar</button>
+                                        <button type="submit" class="btn btn-danger">Eliminar</button>
                                     </form>
                                 </div>
                             </div>
