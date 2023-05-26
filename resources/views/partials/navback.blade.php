@@ -1,13 +1,20 @@
 <!-- Navbar -->
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-black d-none d-lg-block mb-5">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-black fixed-top">
     <div class="container-fluid">
         <!-- Navbar brand -->
         <a class="navbar-brand mt-2 mt-lg-0" href="{{ route('index') }}">
-            <img src="https://i.postimg.cc/fRRZSPkw/image-removebg-preview-1.png" height="15" alt="Autolavado Logo" loading="lazy" />
+            <img src="https://i.postimg.cc/fRRZSPkw/image-removebg-preview-1.png" height="15" alt="Autolavado Logo"
+                loading="lazy" />
         </a>
 
-        <div class="collapse navbar-collapse" id="navbarExample01">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" style="color: #4FAAE2">
+            <i
+                class="navbar-toggler-icon fas fa-bars me-3 text-secondary d-flex justify-content-center align-items-center"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-lg-flex">
 
                 <li class="nav-item active">
                     <a class="nav-link" aria-current="page" href="{{ route('registers.index') }}">INICIO</a>
@@ -24,7 +31,7 @@
 
 
 
-            <ul class="navbar-nav d-flex flex-row gap-3">
+            <ul class="navbar-nav ms-auto d-lg-flex flex-row gap-3">
 
 
                 <form class="input-group align-items-center" action="{{ route('client.search') }}">

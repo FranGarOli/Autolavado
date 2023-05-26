@@ -10,6 +10,7 @@ use App\Models\Client;
 use App\Models\RegisterService;
 use App\Models\Register;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\BookingRequest;
 
 class StaticPagesController extends Controller
 {
@@ -80,30 +81,14 @@ class StaticPagesController extends Controller
         $email = $request->get('email');
         $mensaje = $request->get('mensaje');
 
-        //Configuracion del correo
-//        $para = 'fran.garciaa22@gmail.com';
-//        $titulo = 'Mensaje consulta autolavado';
-//
-//        $headers = "From: " . $email . "rn";
-//        $headers .= "Reply-To: " . $para . "rn";
-//
-//        ini_set('SMTP', 'smtp.gmail.com');
-//        ini_set('smtp_port', 587);
-//        ini_set('username', 'fran.garciaa22@gmail.com');
-//        ini_set('password', 'lyenkzzacvpazbsr');
-
         Mail::to('fran.garciaa22@gmail.com')->send(new ContactForm($name, $email, $mensaje));
-
-
-//        //Enviamos el correo
-//        mail($para, $titulo, $mensaje, $headers);
 
         //Redirigimos a la pagina contacto
         return redirect()->back()->with('mensaje', 'El mensaje se ha mandado. Recibirás una respuesta por email.');
     }
 
     //reservar cita
-    public function saveBooking(Request $request){
+    public function saveBooking(BookingRequest $request){
 
         //creamos un registro nuevo
         $register = new Register();
@@ -163,7 +148,7 @@ class StaticPagesController extends Controller
         $arrayServicios = explode(",", $request->get('servicios'));
 
         $registros_servicios = DB::table('services')
-            ->whereIn('description', $arrayServicios)
+            ->whereIn('title', $arrayServicios)
             ->get();
 
         //prueba utilizar metodo pluck, recoge todos los id asociados a el array servicios que tiene name de servicios

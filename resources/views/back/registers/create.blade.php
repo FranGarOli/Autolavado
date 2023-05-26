@@ -13,9 +13,9 @@
                     <hr>
 
                     <div class="campos-formulario">
-                        <label for="name">Nombre del cliente</label>
+                        <label for="nameClient">Nombre del cliente</label>
 
-                        <input type="text" name="name" id="nameClient" list="nameList" autocomplete="off" value="{{old('name')}}">
+                        <input type="text" name="name" id="nameClient" list="nameList" value="{{old('name')}}">
                         <datalist id="nameList">
                             <!--Option generado en js saca nombres"-->
                         </datalist>
@@ -26,7 +26,7 @@
 
                     <div class="campos-formulario">
                         <label for="dni">DNI</label>
-                        <input type="text" name="dni" id="dni" autocomplete="off" value="{{old('dni')}}">
+                        <input type="text" name="dni" id="dni" value="{{old('dni')}}">
                         @error('dni')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -85,7 +85,7 @@
                     </div>
 
                     <div class="campos-formulario">
-                        <label for="date">Fecha de recogida</label>
+                        <label for="datetime">Fecha de recogida</label>
                         <input type="datetime-local" name="limitDate" id="datetime" value="{{old('limitDate')}}">
                         @error('limitDate')
                             <div class="alert alert-danger">{{ $message }}</div>

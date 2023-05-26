@@ -94,12 +94,12 @@ Route::get('/getAllClients', [ServiceController::class, 'getAllClients'])
 
 //peticion api coger servicios
 Route::get('/getAllServices', [ServiceController::class, 'getAllServices'])
-    ->name('allServices')
-    ->middleware('auth');
+    ->name('allServices');
 
 
 //Peticion mandar correo email de contacto
 Route::post('sendEmail', [StaticPagesController::class, 'sendEmail'])->name('sendEmail');
 
 //Peticion para generar el pdf de un registro
-Route::get('/generatePDF/{register}', [PDFController::class, 'getPDF'])->name('generatePDF');
+Route::get('/generatePDF/{register}', [PDFController::class, 'getPDF'])->name('generatePDF')
+        ->middleware('auth');

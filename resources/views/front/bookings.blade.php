@@ -11,29 +11,41 @@
         @endif
         <div class="reservas d-flex justify-content-center align-content-center">
 
-            <form class="formulario" class="d-flex flex-column" action="{{route('saveBooking')}}" method="post">
+            <form class="formulario" class="d-flex flex-column" action="{{ route('saveBooking') }}" method="post">
                 @csrf
 
                 <h1 class="mt-5 text-center">Reserva tu cita!</h1>
 
                 <div class="form-group mb-1 ">
                     <label class="form-label" for="name">Nombre completo: </label>
-                    <input class="form-control" type="text" name="name" id="name">
+                    <input class="form-control" type="text" name="name" id="name" value="{{ old('name') }}">
+                    @error('name')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="form-group mb-1">
                     <label class="form-label" for="dni">DNI: </label>
-                    <input class="form-control" type="text" name="dni" id="dni">
+                    <input class="form-control" type="text" name="dni" id="dni" value="{{ old('dni') }}">
+                    @error('dni')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="form-group mb-1">
                     <label class="form-label" for="phone">Teléfono: </label>
-                    <input class="form-control" type="text" name="phone" id="phone">
+                    <input class="form-control" type="text" name="phone" id="phone" value="{{ old('phone') }}">
+                    @error('phone')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="form-group mb-1">
                     <label class="form-label" for="email">Correo electrónico: </label>
-                    <input class="form-control" type="email" name="email" id="email">
+                    <input class="form-control" type="email" name="email" id="email" value="{{ old('email') }}">
+                    @error('email')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="form-group mb-1">
@@ -54,18 +66,27 @@
 
                 <div class="form-group mb-1">
                     <label class="form-label" for="model">Modelo del coche: </label>
-                    <input class="form-control" type="text" name="model" id="model">
+                    <input class="form-control" type="text" name="model" id="model" value="{{ old('model') }}">
+                    @error('model')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="form-group mb-1">
                     <label class="form-label" for="model">Matrícula del coche: </label>
-                    <input class="form-control" type="text" name="plate" id="plate">
+                    <input class="form-control" type="text" name="plate" id="plate" value="{{ old('plate') }}">
+                    @error('plate')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="form-group mb-1">
                     <label class="form-label" for="datetime">Escoge hora: de 9:00 a 14:00 y de 16:00 a 20:00h</label>
                     <input class="form-control" type="datetime-local" name="datetime" id="datetime"
-                        placeholder="de 9:00 a 14:00 y de 16:00 a 20:00h">
+                        placeholder="de 9:00 a 14:00 y de 16:00 a 20:00h" value="{{ old('datetime') }}">
+                    @error('datetime')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="btn-formulario text-center mt-3">

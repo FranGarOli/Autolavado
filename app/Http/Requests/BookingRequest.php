@@ -4,23 +4,10 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class RegisterRequest extends FormRequest
+class BookingRequest extends FormRequest
 {
-
     /**
      * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
-    {
-        return true;
-    }
-
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, mixed>
      */
     public function rules()
     {
@@ -32,7 +19,7 @@ class RegisterRequest extends FormRequest
             'servicios' => 'required',
             'model' => 'required|string|max:255',
             'plate' => 'required|string|regex:/^\d{4}[a-zA-Z]{3}$/',
-            'limitDate' => 'required|date|after:today',
+            'datetime' => 'required|date|after_or_equal:today',
         ];
     }
 
@@ -51,9 +38,8 @@ class RegisterRequest extends FormRequest
             'model.required' => 'El modelo del coche es obligatorio.',
             'plate.required' => 'La matrícula del coche es obligatoria.',
             'plate.regex' => 'La matrícula del coche no es válida.',
-            'limitDate.required' => 'La fecha de recogida es obligatoria.',
-            'limitDate.after' => 'La fecha debe ser actual o posterior a hoy',
+            'datetime.required' => 'La fecha de entrada es obligatoria.',
+            'datetime.after_or_equal' => 'La fecha de entrada debe ser actual o posterior a hoy',
         ];
     }
-
 }

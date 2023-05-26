@@ -86,10 +86,6 @@ class RegisterController extends Controller
         //creamos un registro nuevo
         $register = new Register();
 
-        //validar campos del formulario ¿crear un request y ahorrarse esto? -> PENDIENTE
-
-        // fin validacion
-
         /* ------------------------ VALIDAR CLIENTE ------------------------
          SI EXISTE -> RELACIONAS EL client_id CON EL ID DEL CLIENTE EXISTENTE,
          SI NO EXISTE -> CREAS UN CLIENTE Y LO ASOCIAS AL REGISTRO QUE VAS A CREAR
@@ -99,7 +95,6 @@ class RegisterController extends Controller
         $nameClientFormReceived = $request->get('name');
         //validamos si existe un cliente con ese nombre
         $existClient = Client::where('name', $nameClientFormReceived)->first();
-
 
         //si existe el client asocia el id al client_id
         if ($existClient){
@@ -125,7 +120,7 @@ class RegisterController extends Controller
 
         $register->plate = $request->get('plate');
         $register->model = $request->get('model');
-        $register->entryDate = Carbon::now();
+        $register->entryDate = $request->get('limitDate');
         $register->limitDate = $request->get('limitDate');
 
         //creamos el servicio ahora para poder coger su id y asociar los servicios
