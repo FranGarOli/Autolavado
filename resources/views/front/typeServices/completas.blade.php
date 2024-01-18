@@ -16,8 +16,10 @@
                 - Secado culateras
                 - Ambientador</h6>
             <div class="container d-flex justify-content-center align-content-center gap-3">
-                <img src="https://www.autolavadogarcia.com/uploads/img61334fc0d14af.jpg" class="img-fluid" width="300px" />
-                <img src="https://www.autolavadogarcia.com/uploads/img61334fd9a2602.jpg" class="img-fluid" width="300px" />
+                <div class="col-sm-6 d-flex flex-column gap-2">
+                    <img src="https://www.autolavadogarcia.com/uploads/img61334fc0d14af.jpg" class="img-fluid" width="300px" />
+                    <img src="https://www.autolavadogarcia.com/uploads/img61334fd9a2602.jpg" class="img-fluid" width="300px" />
+                </div>
             </div>
             <h3>Precio: 28 €</h3>
         </div>

@@ -15,18 +15,26 @@
                 ocasionarse, teniéndolos que asumirlos el cliente bajo su responsabilidad a la hora de hacer el servicio
             </p>
             <div class="d-flex flex-row justify-content-center align-items-center gap-3">
-                <img src="https://www.autolavadogarcia.com/uploads/img5da47dfa46a4a.jpg" class="img-fluid" />
-                <img src="https://www.autolavadogarcia.com/uploads/img5da47e126b6f9.jpg" class="img-fluid" />
+                <div class="col-sm-6">
+                    <img src="https://www.autolavadogarcia.com/uploads/img5da47dfa46a4a.jpg" class="img-fluid" />
+                </div>
+                <div class="col-sm-6">
+                    <img src="https://www.autolavadogarcia.com/uploads/img5da47e126b6f9.jpg" class="img-fluid" />
+                </div>
             </div>
 
             <div class="d-flex flex-row justify-content-center align-items-center gap-3">
-                <h3>LIMPIEZA MOTOR POR ARRIBA 45 €</h3>
-                <img src="https://www.autolavadogarcia.com/uploads/img4f4a1389549bc.jpg" class="img-fluid" alt="">
+                <div class="col-sm-6">
+                    <img src="https://www.autolavadogarcia.com/uploads/img4f4a1389549bc.jpg" class="img-fluid" alt="">
+                    <h3>LIMPIEZA MOTOR POR ARRIBA 45€</h3>
+                </div>
             </div>
 
             <div class="d-flex flex-row justify-content-center align-items-center gap-3">
-                <img src="https://www.autolavadogarcia.com/uploads/img4f4a13d3ecc41.jpg" class="img-fluid" alt="">
-                <h3>LIMPIEZA MOTOR POR DEBAJO 39 €</h3>
+                <div class="col-sm-6">
+                    <img src="https://www.autolavadogarcia.com/uploads/img4f4a13d3ecc41.jpg" class="img-fluid" alt="">
+                    <h3>LIMPIEZA MOTOR POR DEBAJO 39€</h3>
+                </div>
             </div>
             {{-- <h1>Servicio de tapicería completa</h1>
 

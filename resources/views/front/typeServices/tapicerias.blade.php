@@ -16,8 +16,12 @@
                 detalle con llantas bajos y una sesion de ozonizacion para desinfectar y eliminar olores del vehiculo
             </h6>
             <div class="container d-flex justify-content-center align-content-center gap-3">
-                <img src="https://www.autolavadogarcia.com/uploads/img5da47c7a45c38.jpg" alt="">
-                <img src="https://www.autolavadogarcia.com/uploads/img5da47c95600fc.jpg" alt="">
+                <div class="col-sm-6">
+                    <img src="https://www.autolavadogarcia.com/uploads/img5da47c7a45c38.jpg" alt="" class="img-fluid">
+                </div>
+                <div class="col-sm-6">
+                    <img src="https://www.autolavadogarcia.com/uploads/img5da47c95600fc.jpg" alt="" class="img-fluid">
+                </div>
             </div>
             <h3>Precio: TAPICERIA COMPLETA DESDE 130€</h3>
         </div>
@@ -37,8 +41,14 @@
                 - Secado culateras
                 - Ambientador</h6>
             <div class="container d-flex justify-content-center align-content-center gap-3">
-                <img src="https://www.autolavadogarcia.com/uploads/img61334fc0d14af.jpg" class="img-fluid" width="300px" />
-                <img src="https://www.autolavadogarcia.com/uploads/img61334fd9a2602.jpg" class="img-fluid" width="300px" />
+                <div class="col-sm-6">
+                    <img src="https://www.autolavadogarcia.com/uploads/img61334fc0d14af.jpg" class="img-fluid"
+                        width="300px" />
+                </div>
+                <div class="col-sm-6">
+                    <img src="https://www.autolavadogarcia.com/uploads/img61334fd9a2602.jpg" class="img-fluid"
+                        width="300px" />
+                </div>
             </div>
             <h3>Precio: 45 €</h3>
         </div>
@@ -56,8 +66,14 @@
                 -SECADO ASIENTOS DEL VEHICULO PARA NO TENER HUMEDADES
                 -AMBIENTADOR</h6>
             <div class="container d-flex justify-content-center align-content-center gap-3">
-                <img src="https://www.autolavadogarcia.com/uploads/img59b650ef2651f.jpg" class="img-fluid" width="300px" />
-                <img src="https://www.autolavadogarcia.com/uploads/img59b651040cf11.jpg" class="img-fluid" width="300px" />
+                <div class="col-sm-6">
+                    <img src="https://www.autolavadogarcia.com/uploads/img59b650ef2651f.jpg" class="img-fluid"
+                        width="300px" />
+                </div>
+                <div class="col-sm-6">
+                    <img src="https://www.autolavadogarcia.com/uploads/img59b651040cf11.jpg" class="img-fluid"
+                        width="300px" />
+                </div>
             </div>
             <h3>Precio: 69 € (Oferta valida para vehiculos pequeños y medianos)</h3>
         </div>

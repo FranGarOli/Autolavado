@@ -15,30 +15,32 @@
             </div>
 
             <div class="d-flex flex-row justify-content-center align-items-center gap-3">
-                <img src="https://www.autolavadogarcia.com/uploads/img5d6e50cbe1145.jpg" class="img-fluid"
-                    width="900px" />
-                <img src="https://www.autolavadogarcia.com/uploads/img5d6e50eadf022.jpg" class="img-fluid" />
+                <div class="col-sm-6">
+                    <img src="https://www.autolavadogarcia.com/uploads/img5d6e50cbe1145.jpg" class="img-fluid"
+                        width="900px" />
+                    <img src="https://www.autolavadogarcia.com/uploads/img5d6e50eadf022.jpg" class="img-fluid" />
+                </div>
             </div>
 
             <div class="d-flex flex-row bg-light border rounded p-5 gap-3 justify-content-center">
-                <h1>Venta de aceite petronas</h1>
-                <div>
+                <div class="col-sm-6">
+                    <h1>Venta de aceite petronas</h1>
                     <img src="https://www.autolavadogarcia.com/uploads/img5d6e51dc9d536.jpg" class="img-fluid"
                         alt="Aceite petronas">
                 </div>
             </div>
 
-            <div class="d-flex flex-row bg-light border rounded p-5 gap-3 justify-content-center">
-                <div>
+            <div class="d-flex flex-row justify-content-center align-items-center gap-3  bg-light border rounded p-5">
+                <div class="col-sm-6">
                     <h1>Liquido limpia parabrisas</h1>
-                    <div>
-                        <img src="https://www.autolavadogarcia.com/uploads/img51123f1f35a87.jpg" class="img-fluid"
-                            alt="Limpiaparabrisas">
-                    </div>
+                    <img src="https://www.autolavadogarcia.com/uploads/img51123f1f35a87.jpg" class="img-fluid"
+                        alt="Limpiaparabrisas">
                     <h1>Precio: 5€</h1>
                 </div>
+            </div>
 
-                <div>
+            <div class="d-flex flex-row bg-light border rounded p-5 gap-3 justify-content-center">
+                <div class="col-sm-6">
                     <h1>Antihumos Liquimoly</h1>
                     <p>ANTIHUMOS LIQUIMOLY Disminuye la expulsión de hollín y contaminantes inmediatamente después de
                         añadirlo Limpia el sistema de inyección diesel y hace que el motor marche mas tranquilo
@@ -50,7 +52,6 @@
 
                 </div>
             </div>
-        </div>
 
     </main>
 @endsection
