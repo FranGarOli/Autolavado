@@ -4,6 +4,16 @@
         <title>{{ $invoice->name }}</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-BCCEL8JVNV"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-BCCEL8JVNV');
+        </script>
+
         <style type="text/css" media="screen">
             html {
                 font-family: sans-serif;
