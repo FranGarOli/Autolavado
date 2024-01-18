@@ -8,6 +8,16 @@
     <!--<link rel="stylesheet" href="/css/estilo.css">-->
     <script src="https://code.iconify.design/iconify-icon/1.0.5/iconify-icon.min.js"></script>
 
+    <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-BCCEL8JVNV"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-BCCEL8JVNV');
+    </script>
+
     <!--MD BOOTSTRAP 5-->
 
         <script type="text/javascript"
